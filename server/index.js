@@ -19,11 +19,8 @@ const WHISPER_SERVER_URL = process.env.WHISPER_SERVER_URL || 'http://127.0.0.1:8
 // Hard ceiling so a hung whisper.cpp process can't hold the request open forever.
 const WHISPER_TIMEOUT_MS = Number(process.env.WHISPER_TIMEOUT_MS) || 120_000;
 
-// OpenRouter summarization config. NOTE: prefer setting OPENROUTER_API_KEY in
-// the environment instead of relying on this fallback value.
-const OPENROUTER_API_KEY =
-  process.env.OPENROUTER_API_KEY ||
-  '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';
+// OpenRouter summarization config — MUST be set via environment variables.
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_MODEL_ID = process.env.OPENROUTER_MODEL_ID || 'deepseek/deepseek-v4-flash';
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
